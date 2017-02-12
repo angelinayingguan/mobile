@@ -1,0 +1,5 @@
+Lunch,Deli,Ovengold Turkey Breast; Sweet Sliced Ham; Roast Beef; Tuna Salad; Chicken Salad; Egg Salad; White American Cheese; White Cheddar Cheese; Swiss Cheese
+Lunch,Lighter Side,Grilled Chicken Breast; Red Curry Eggplant with Dal; Greens and Beans; Brown Rice; Steamed Broccoli; Roasted Cauliflower; Steamed Swiss Chard; Baked Sweet Potato; Baked Potato; Protein Plus Penne; Whole Wheat Rotini; Marinara Sauce
+Lunch,Pastry Selection,Assorted Bagels; Assorted Croissants; Assorted Danish
+Lunch,Soup,Tomato & Garden Vegetable Soup
+Lunch,Traditional,Porchetta; Steamed Broccoli; Cage Free Scrambled Eggs; Cage Free Hard Boiled Egg; Pancakes; Uncured Bacon; Vegan Banana Pancakes; Home Fries; Fresh Fruit Salad

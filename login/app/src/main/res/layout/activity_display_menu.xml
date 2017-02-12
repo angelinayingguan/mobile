@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/menuu"
+    tools:context="com.example.angelina.login.DisplayMenu">
+
+
+
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:weightSum="1">
+
+        <TextView
+            android:text="Today's Menu"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textStyle="italic"
+            android:textSize="35dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="40dp" />
+        <Button
+            android:text="Breakfast"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/button2"
+            android:textStyle="bold"
+            android:textSize="40dp"
+            android:onClick="Breakfast"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:visibility="visible"
+            android:background="@color/colorPrimaryDark"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="40dp"/>
+    <Button
+        android:text="Lunch"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/button3"
+        android:onClick="Lunch"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:visibility="visible"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/button4"
+        android:layout_alignParentStart="true"
+        />
+
+    <Button
+        android:text="Dinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/button4"
+        android:onClick="Dinner"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:visibility="visible"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp" />
+
+
+
+
+
+</LinearLayout>
+</LinearLayout>
