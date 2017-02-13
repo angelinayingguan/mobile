@@ -14,7 +14,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-
 public class Scraper {
     public ArrayList<ArrayList<ArrayList<String>>> scrapeMenu(String date) throws IOException {
 
@@ -29,9 +28,9 @@ public class Scraper {
         Document doc;
         doc = Jsoup.connect("https://www.amherst.edu/campuslife/housing-dining/dining/menu").get();
 //        System.out.println(doc.toString());
-       // System.out.println(date);
+        //System.out.println(date);
         Element day = doc.getElementById("dining-menu-"+date);
-       // System.out.println(day.toString());
+        //System.out.println(day.toString());
         Elements meals = day.getElementsByClass("dining-menu-meal");
 
         for(int i=0; i<meals.size(); i++){
@@ -43,13 +42,13 @@ public class Scraper {
                     breakfast.add(new ArrayList<String>());
                     breakfast.get(j).add(courses.get(j).text());
                     String s = content.get(j).text();
-
-                    int start=0;
+                    breakfast.get(j).add(s);
+                    //  int start=0;
 
                     for(int k = 0; k<s.length(); k++){
                         if(s.substring(k, k+1).equals(";")){
-                            breakfast.get(j).add(s.substring(start,k));
-                            start=k+1;
+                            //         breakfast.get(j).add(s.substring(start,k));
+                            //       start=k+1;
                         }
                     }
                 }
@@ -57,13 +56,13 @@ public class Scraper {
                     lunch.add(new ArrayList<String>());
                     lunch.get(j).add(courses.get(j).text());
                     String s = content.get(j).text();
-
-                    int start=0;
+                    lunch.get(j).add(s);
+                    //int start=0;
 
                     for(int k = 0; k<s.length(); k++){
                         if(s.substring(k, k+1).equals(";")){
-                            lunch.get(j).add(s.substring(start,k));
-                            start=k+1;
+                            //      lunch.get(j).add(s.substring(start,k));
+                            //    start=k+1;
                         }
                     }
                 }
@@ -73,13 +72,18 @@ public class Scraper {
                     String s = content.get(j).text();
 
                     int start=0;
-
-                    for(int k = 0; k<s.length(); k++){
-                        if(s.substring(k, k+1).equals(";")){
-                            dinner.get(j).add(s.substring(start,k));
-                            start=k+1;
-                        }
-                    }
+                    dinner.get(j).add(s);
+//                    for(int k = 0; k<s.length(); k++){
+//                        if(s.substring(k, k+1).equals(";")){
+//                            dinner.get(j).add(s.substring(start,k));
+//                            start=k+1;
+//                        }
+//                    }
+//                    for(int z = 0; z<dinner.get(j).size();z++){
+//                        String alpha = dinner.get(j).get(z);
+//                        System.out.println(alpha);
+//                        System.out.println("HITMAN!");
+//                    }
                 }
             }
         }
