@@ -25,8 +25,10 @@ import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
@@ -35,6 +37,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -48,13 +58,17 @@ import static android.app.PendingIntent.getActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     /**
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
     private EditText email;
     private EditText pass;
+    private TextView info;
+    private LoginButton loginButton;
     DatabaseHelper helper = new DatabaseHelper(this);
+    private CallbackManager callbackManager = CallbackManager.Factory.create();
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -62,10 +76,15 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleApiClient client;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        info = (TextView)findViewById(R.id.info);
+        loginButton = (LoginButton)findViewById(R.id.login_button);
+
         // Set up the login form.
 
 
@@ -78,6 +97,30 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // When Button Login clicked
+
+
+    private FacebookCallback<LoginResult> mcallback = new FacebookCallback<LoginResult>() {
+        @Override
+        public void onSuccess(LoginResult loginResult) {
+
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(i);
+        }
+
+        @Override
+        public void onCancel() {
+            info.setText("Login attempt canceled.");
+        }
+
+        @Override
+        public void onError(FacebookException error) {
+            info.setText("Login attempt failed.");
+        }
+    };
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
     public void Signin(View v) {
         email = (EditText) findViewById(R.id.email);
         pass = (EditText) findViewById(R.id.password);
@@ -94,11 +137,9 @@ public class LoginActivity extends AppCompatActivity {
         } else if (pass.getText().toString().equals("")) {
             pass.setError("Can't be Empty");
 
-        }
-        else if (password.equals("nonono")){
+        } else if (password.equals("nonono")) {
             email.setError("Email not registered");
-        }
-        else if (strpass.equals(password)) {
+        } else if (strpass.equals(password)) {
             Intent i = new Intent(LoginActivity.this, MainActivity.class);
             i.putExtra("email", str);
             startActivity(i);
@@ -132,11 +173,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
-    /*public Action getIndexApiAction() {
+    public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("Login Page") // TODO: Define a title for the content shown.
                 // TODO: Make sure this auto-generated URL is correct.
@@ -167,7 +210,7 @@ public class LoginActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
-
-*/
 }
+
+
 

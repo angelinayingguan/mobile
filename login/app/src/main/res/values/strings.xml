@@ -2,6 +2,7 @@
     <string name="app_name">login</string>
 
     <!-- Strings related to login -->
+    <string name="app_id">1638247356482080</string>
     <string name="title_activity_display_menu">Today\'s Menu</string>
     <string name="title_activity_display_lunch">"Today's Lunch "</string>
     <string name="title_activity_display_dinner">Today\'s Dinner:)</string>
@@ -28,6 +29,10 @@
     <string name="btn_link_to_login">Already registered, back to login</string>
     <string name="pname">Create Username</string>
     <string name="hint_email_r">Enter Login Email</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

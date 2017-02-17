@@ -21,7 +21,14 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        Button buttonb= (Button) findViewById(R.id.b3);
+        buttonb.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0){
+                Intent startNewPage= new Intent(MainActivity.this, MapsActivity.class);
+                startActivity (startNewPage);
+            }
 
+        });
 
     }
 
